@@ -1,10 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://0hyhn3gtbn5x"]
+[gd_scene load_steps=6 format=3 uid="uid://0hyhn3gtbn5x"]
 
 [ext_resource type="Script" path="res://scrips/camera.gd" id="1_b1285"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_jdefw"]
 [ext_resource type="PackedScene" uid="uid://crtsoox5pxyp2" path="res://scenes/game_map.tscn" id="1_wi41n"]
+[ext_resource type="PackedScene" uid="uid://qal2r8vxqugk" path="res://scenes/game_menu.tscn" id="4_okqi4"]
+
+[sub_resource type="GDScript" id="GDScript_odnmm"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [node name="Game" type="Node2D"]
+script = SubResource("GDScript_odnmm")
 
 [node name="GameManager" type="Node2D" parent="."]
 script = ExtResource("1_jdefw")
@@ -16,3 +32,7 @@ min_zoom = 2.0
 max_zoom = 5.0
 
 [node name="GameMap" parent="." instance=ExtResource("1_wi41n")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameMenu" parent="CanvasLayer" instance=ExtResource("4_okqi4")]
