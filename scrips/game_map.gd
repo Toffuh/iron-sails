@@ -15,6 +15,8 @@ var island_scene: PackedScene = preload("res://scenes/island.tscn")
 
 @export var map_width: int = 64
 @export var map_height: int = 32
+@export var island_count: int = 4
+@export var min_island_distance: int = 12
 
 
 func create_random_map():
@@ -27,17 +29,39 @@ func create_islands():
 	for child in children:
 		child.free()
 
-	for x in range(4):
-		spawn_random_island()
+	var island_locations: Array[Vector2i] = []
+
+	for x in range(island_count):
+		for y in range(0, 5):
+			var location: Vector2i = random_island_location()
+
+			var to_close: bool = false
+			for other_location in island_locations:
+				if other_location.distance_squared_to(location) < min_island_distance * min_island_distance:
+					to_close = true
+					break
+
+			if to_close:
+				continue
+
+			island_locations.push_back(location)
+			break
+
+	for location in island_locations:
+		spawn_island(location)
 
 
-func spawn_random_island():
+func random_island_location() -> Vector2i:
 	var x_range: int = map_width / 2
 	var y_range: int = map_height / 2
 
 	var x: int = randi_range(-x_range + 3, x_range - 3)
 	var y: int = randi_range(-y_range + 3, y_range - 3)
 
+	return Vector2i(x, y)
+
+
+func spawn_island(location: Vector2i):
 	var island: Island = island_scene.instantiate()
 
 	islands.add_child(island)
@@ -46,7 +70,7 @@ func spawn_random_island():
 
 	island.generate()
 
-	island.position = Vector2(x * 16, y * 16)
+	island.position = Vector2(location.x * 16, location.y * 16)
 	island.name = "Island " + str(islands.get_child_count())
 
 
