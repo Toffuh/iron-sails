@@ -6,9 +6,6 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="GameManager" type="Node2D" parent="."]
-script = ExtResource("1_jdefw")
-
 [node name="Camera" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
 script = ExtResource("1_b1285")
@@ -16,3 +13,8 @@ min_zoom = 2.0
 max_zoom = 5.0
 
 [node name="GameMap" parent="." instance=ExtResource("1_wi41n")]
+unique_name_in_owner = true
+
+[node name="GameManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_jdefw")
