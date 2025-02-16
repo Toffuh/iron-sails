@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bx0fvbmqxj3sx" path="res://assets/map-tiles.png" id="1_al8fl"]
 [ext_resource type="Script" path="res://scrips/game_map.gd" id="1_t5x5e"]
 [ext_resource type="PackedScene" uid="uid://c8gfn24cwns08" path="res://scenes/island.tscn" id="3_kt1y0"]
-[ext_resource type="Script" path="res://scrips/island.gd" id="4_5ksg5"]
+[ext_resource type="Script" path="res://scrips/island.gd" id="4_rvi8s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqa2"]
 texture = ExtResource("1_al8fl")
@@ -78,17 +78,17 @@ tile_set = SubResource("TileSet_p028l")
 [node name="Islands" type="Node2D" parent="."]
 
 [node name="Island 1" type="Node2D" parent="Islands" instance=ExtResource("3_kt1y0")]
-position = Vector2(-208, -32)
-script = ExtResource("4_5ksg5")
+position = Vector2(-112, 0)
+script = ExtResource("4_rvi8s")
 
 [node name="Island 2" type="Node2D" parent="Islands" instance=ExtResource("3_kt1y0")]
-position = Vector2(-64, 0)
-script = ExtResource("4_5ksg5")
+position = Vector2(192, 48)
+script = ExtResource("4_rvi8s")
 
 [node name="Island 3" type="Node2D" parent="Islands" instance=ExtResource("3_kt1y0")]
-position = Vector2(64, 0)
-script = ExtResource("4_5ksg5")
+position = Vector2(-48, 80)
+script = ExtResource("4_rvi8s")
 
 [node name="Island 4" type="Node2D" parent="Islands" instance=ExtResource("3_kt1y0")]
-position = Vector2(176, -32)
-script = ExtResource("4_5ksg5")
+position = Vector2(-208, 32)
+script = ExtResource("4_rvi8s")
