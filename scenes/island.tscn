@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://c8gfn24cwns08"]
+[gd_scene load_steps=6 format=4 uid="uid://c8gfn24cwns08"]
 
 [ext_resource type="Script" path="res://scrips/island.gd" id="1_xcs2c"]
 [ext_resource type="Texture2D" uid="uid://bx0fvbmqxj3sx" path="res://assets/map-tiles.png" id="2_sjlk7"]
@@ -63,9 +63,20 @@ terrain_set_0/terrain_0/name = "Islands"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_gr1c3")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gskqb"]
+size = Vector2(32, 16)
+
 [node name="Island" type="Node2D"]
 script = ExtResource("1_xcs2c")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAAALAAAAAAAAAP//AAAOAAAAAAD//wAAAAATAAAAAAD/////AAAPAAAAAAAAAAEAAAASAAAAAAD//wEAAAAQAAAAAAABAAEAAAARAAAAAAABAAAAAAAMAAAAAAABAP//AAANAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAAAAASAAAAAAAAAP//AAAOAAAAAAD//wAAAAAQAAAAAAD/////AAAPAAAAAAABAAAAAAARAAAAAAABAP//AAANAAAAAAA=")
 tile_set = SubResource("TileSet_prjb5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_gskqb")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
