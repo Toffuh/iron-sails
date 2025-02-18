@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://scrips/ship.gd" id="1_o6d8v"]
 [ext_resource type="Shader" path="res://scrips/shader/ship.gdshader" id="1_xakxb"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2rwnu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qvuky"]
+resource_local_to_scene = true
 shader = ExtResource("1_xakxb")
 shader_parameter/target_color = Color(1, 1, 1, 1)
 shader_parameter/new_color = null
@@ -14,7 +15,7 @@ script = ExtResource("1_o6d8v")
 color = Color(0.720957, 0.00449137, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_2rwnu")
+material = SubResource("ShaderMaterial_qvuky")
 texture = ExtResource("1_me4ab")
 hframes = 4
 frame = 2
