@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0hyhn3gtbn5x"]
+[gd_scene load_steps=5 format=3 uid="uid://0hyhn3gtbn5x"]
 
 [ext_resource type="Script" path="res://scrips/camera.gd" id="1_b1285"]
 [ext_resource type="Script" path="res://scrips/game_manager.gd" id="1_jdefw"]
 [ext_resource type="PackedScene" uid="uid://crtsoox5pxyp2" path="res://scenes/game_map.tscn" id="1_wi41n"]
+[ext_resource type="PackedScene" uid="uid://b8qw8wvfrvbxa" path="res://scenes/ship.tscn" id="4_p3tyg"]
 
 [node name="Game" type="Node2D"]
 
@@ -18,3 +19,7 @@ unique_name_in_owner = true
 [node name="GameManager" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_jdefw")
+
+[node name="Ship" parent="." instance=ExtResource("4_p3tyg")]
+direction = 1
+color = Color(1, 0.149795, 0.12237, 1)
