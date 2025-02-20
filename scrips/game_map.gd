@@ -1,4 +1,6 @@
 @tool
+@icon("res://assets/icons/node_2d/map.svg")
+
 class_name GameMap
 extends Node2D
 
