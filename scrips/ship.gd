@@ -1,4 +1,7 @@
 @tool
+@icon("res://assets/icons/node_2d/ship.svg")
+
+class_name Ship
 extends Node2D
 
 # value representation is being used to index into the sprite sheet

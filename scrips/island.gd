@@ -1,4 +1,6 @@
 @tool
+@icon("res://assets/icons/node_2d/island.svg")
+
 class_name Island
 extends Node2D
 
@@ -12,7 +14,10 @@ extends Node2D
 			generate()
 
 
-func generate():
+func generate() -> void:
+	if tile_map == null:
+		return
+
 	tile_map.clear()
 
 	var width: int  = randi_range(2, 4)
