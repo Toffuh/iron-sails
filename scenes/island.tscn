@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://c8gfn24cwns08"]
+[gd_scene load_steps=8 format=4 uid="uid://c8gfn24cwns08"]
 
 [ext_resource type="Script" path="res://scrips/island.gd" id="1_xcs2c"]
 [ext_resource type="Texture2D" uid="uid://bx0fvbmqxj3sx" path="res://assets/map-tiles.png" id="2_sjlk7"]
+[ext_resource type="Shader" path="res://scrips/shader/outline.gdshader" id="3_ykuea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jyjtn"]
+resource_local_to_scene = true
+shader = ExtResource("3_ykuea")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gr1c3"]
 texture = ExtResource("2_sjlk7")
@@ -70,6 +77,7 @@ size = Vector2(32, 16)
 script = ExtResource("1_xcs2c")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_jyjtn")
 tile_map_data = PackedByteArray("AAAAAAAAAAASAAAAAAAAAP//AAAOAAAAAAD//wAAAAAQAAAAAAD/////AAAPAAAAAAABAAAAAAARAAAAAAABAP//AAANAAAAAAA=")
 tile_set = SubResource("TileSet_prjb5")
 
@@ -80,3 +88,5 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_gskqb")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

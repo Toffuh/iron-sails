@@ -44,3 +44,11 @@ func _center(values: Array) -> float:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT: #
 		print("clicked island - " + get_name())
+
+
+func _on_area_2d_mouse_entered() -> void:
+	(tile_map.material as ShaderMaterial).set_shader_parameter("width", 1)
+
+
+func _on_area_2d_mouse_exited() -> void:
+	(tile_map.material as ShaderMaterial).set_shader_parameter("width", 0)
