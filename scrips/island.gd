@@ -5,12 +5,7 @@ extends Node2D
 @onready var tile_map: TileMapLayer = $TileMap
 @onready var collision_shape: CollisionShape2D = $Area2D/CollisionShape2D
 
-@export var regenerate: bool:
-	set(value):
-		regenerate = false
-		if Engine.is_editor_hint():
-			generate()
-
+@export_tool_button("Generate", "Callable") var generate_action: Callable = generate
 
 func generate():
 	tile_map.clear()

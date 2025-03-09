@@ -7,11 +7,7 @@ extends Node2D
 
 var island_scene: PackedScene = preload("res://scenes/island.tscn")
 
-@export var generate_new_map: bool:
-	set(value):
-		generate_new_map = false
-		if Engine.is_editor_hint():
-			create_random_map()
+@export_tool_button("Generate new Map", "Callable") var create_random_map_action: Callable = create_random_map
 
 @export var map_width: int = 64
 @export var map_height: int = 32
